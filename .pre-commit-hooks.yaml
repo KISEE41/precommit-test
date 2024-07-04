@@ -1,0 +1,6 @@
+-   id: check-notebook
+    name: check for notebookfiles
+    description: check the notebook files for suitability in grader
+    entry: check-notebook
+    language: python
+    stages: [commit, manual]
