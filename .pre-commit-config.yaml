@@ -1,3 +1,5 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
@@ -5,33 +7,33 @@ repos:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
     -   id: check-yaml
-    -   id: debug-statements
-    -   id: double-quote-string-fixer
-    -   id: name-tests-test
-    -   id: requirements-txt-fixer
--   repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v2.5.0
+    # -   id: check-added-large-files
+
+
+-   repo: https://github.com/psf/black
+    rev: 24.4.2
     hooks:
-    -   id: setup-cfg-fmt
--   repo: https://github.com/asottile/reorder-python-imports
-    rev: v3.13.0
-    hooks:
-    -   id: reorder-python-imports
-        args: [--py38-plus, --add-import, 'from __future__ import annotations']
--   repo: https://github.com/asottile/add-trailing-comma
-    rev: v3.1.0
-    hooks:
-    -   id: add-trailing-comma
--   repo: https://github.com/asottile/pyupgrade
-    rev: v3.16.0
-    hooks:
-    -   id: pyupgrade
-        args: [--py38-plus]
--   repo: https://github.com/hhatto/autopep8
-    rev: v2.3.1
-    hooks:
-    -   id: autopep8
+    -   id: black
+        # args: [--line-length=80]
+
 -   repo: https://github.com/PyCQA/flake8
-    rev: 7.1.0
+    rev: 7.0.0
     hooks:
     -   id: flake8
+        args: [--max-line-length=100]
+
+# -   repo: https://github.com/pre-commit/mirrors-pylint
+#     rev: v3.0.0a5  # Use the latest stable version of pylint
+#     hooks:
+#     -   id: pylint
+#         args:
+#           - --disable=all
+#           - --enable=W,E,F
+#           - --output-format=colorized
+
+-   repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.10.1  # Use the latest stable version of isort
+    hooks:
+    -   id: isort
+        args:
+          - --profile=black

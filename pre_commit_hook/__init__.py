@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from .check_notebook import main
+from .check_notebook import check_notebook
 
 __all__ = [
-    main,
+    check_notebook,
 ]
